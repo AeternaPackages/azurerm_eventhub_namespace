@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.eventhub_namespaces : {
       for k2, v2 in coalesce(v1.eventhub_namespace_customer_managed_keys, {}) :
       "${k1}/${k2}" => merge(v2, {
-        eventhub_namespace_id = module.eventhub_namespaces.eventhub_namespaces["${k1}"].id
+        eventhub_namespace_id = module.eventhub_namespaces.eventhub_namespaces_id["${k1}"]
       })
     }
   ]...)
