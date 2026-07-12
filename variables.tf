@@ -44,16 +44,16 @@ EOT
     }))
     network_rulesets = optional(object({
       default_action = string
-      ip_rule = optional(object({
+      ip_rule = optional(list(object({
         action  = optional(string) # Default: "Allow"
         ip_mask = string
-      }))
+      })))
       public_network_access_enabled  = optional(bool) # Default: true
       trusted_service_access_enabled = optional(bool)
-      virtual_network_rule = optional(object({
+      virtual_network_rule = optional(list(object({
         ignore_missing_virtual_network_service_endpoint = optional(bool)
         subnet_id                                       = string
-      }))
+      })))
     }))
     eventhub_namespace_customer_managed_keys = optional(map(object({
       key_vault_key_ids                 = set(string)
