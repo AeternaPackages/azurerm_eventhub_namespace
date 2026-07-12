@@ -1,4 +1,9 @@
 # --- azurerm_eventhub_namespace ---
+output "eventhub_namespaces_id" {
+  description = "Map of id values across all eventhub_namespaces, keyed the same as var.eventhub_namespaces"
+  value       = module.eventhub_namespaces.eventhub_namespaces_id
+}
+
 output "eventhub_namespaces_auto_inflate_enabled" {
   description = "Map of auto_inflate_enabled values across all eventhub_namespaces, keyed the same as var.eventhub_namespaces"
   value       = module.eventhub_namespaces.eventhub_namespaces_auto_inflate_enabled
@@ -106,6 +111,11 @@ output "eventhub_namespaces_tags" {
 }
 
 # --- azurerm_eventhub_namespace_customer_managed_key ---
+output "eventhub_namespace_customer_managed_keys_id" {
+  description = "Map of id values across all eventhub_namespace_customer_managed_keys, keyed the same as var.eventhub_namespace_customer_managed_keys"
+  value       = module.eventhub_namespace_customer_managed_keys.eventhub_namespace_customer_managed_keys_id
+}
+
 output "eventhub_namespace_customer_managed_keys_eventhub_namespace_id" {
   description = "Map of eventhub_namespace_id values across all eventhub_namespace_customer_managed_keys, keyed the same as var.eventhub_namespace_customer_managed_keys"
   value       = module.eventhub_namespace_customer_managed_keys.eventhub_namespace_customer_managed_keys_eventhub_namespace_id
