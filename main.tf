@@ -12,12 +12,12 @@ locals {
 }
 
 module "eventhub_namespaces" {
-  source              = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace.git?ref=v4.81.0"
+  source              = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace.git?ref=v5.0.0"
   eventhub_namespaces = local.eventhub_namespaces
 }
 
 module "eventhub_namespace_customer_managed_keys" {
-  source                                   = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace_customer_managed_key.git?ref=v4.81.0"
+  source                                   = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace_customer_managed_key.git?ref=v5.0.0"
   eventhub_namespace_customer_managed_keys = local.eventhub_namespace_customer_managed_keys
   depends_on                               = [module.eventhub_namespaces]
 }
