@@ -52,36 +52,36 @@ locals {
 }
 
 module "eventhub_namespaces" {
-  source              = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace.git?ref=v5.0.0"
+  source              = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace.git?ref=v5.0.1"
   eventhub_namespaces = local.eventhub_namespaces
 }
 
 module "eventhubs" {
-  source     = "git::https://github.com/AeternaModules/azurerm_eventhub.git?ref=v5.0.0"
+  source     = "git::https://github.com/AeternaModules/azurerm_eventhub.git?ref=v5.0.1"
   eventhubs  = local.eventhubs
   depends_on = [module.eventhub_namespaces]
 }
 
 module "eventhub_namespace_customer_managed_keys" {
-  source                                   = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace_customer_managed_key.git?ref=v5.0.0"
+  source                                   = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace_customer_managed_key.git?ref=v5.0.1"
   eventhub_namespace_customer_managed_keys = local.eventhub_namespace_customer_managed_keys
   depends_on                               = [module.eventhub_namespaces]
 }
 
 module "eventhub_namespace_schema_groups" {
-  source                           = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace_schema_group.git?ref=v5.0.0"
+  source                           = "git::https://github.com/AeternaModules/azurerm_eventhub_namespace_schema_group.git?ref=v5.0.1"
   eventhub_namespace_schema_groups = local.eventhub_namespace_schema_groups
   depends_on                       = [module.eventhub_namespaces]
 }
 
 module "eventhub_authorization_rules" {
-  source                       = "git::https://github.com/AeternaModules/azurerm_eventhub_authorization_rule.git?ref=v5.0.0"
+  source                       = "git::https://github.com/AeternaModules/azurerm_eventhub_authorization_rule.git?ref=v5.0.1"
   eventhub_authorization_rules = local.eventhub_authorization_rules
   depends_on                   = [module.eventhubs]
 }
 
 module "eventhub_consumer_groups" {
-  source                   = "git::https://github.com/AeternaModules/azurerm_eventhub_consumer_group.git?ref=v5.0.0"
+  source                   = "git::https://github.com/AeternaModules/azurerm_eventhub_consumer_group.git?ref=v5.0.1"
   eventhub_consumer_groups = local.eventhub_consumer_groups
   depends_on               = [module.eventhubs]
 }
